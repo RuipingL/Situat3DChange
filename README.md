@@ -1,7 +1,7 @@
 
 # Situat3DChange
 
-**Situat3DChange** is a 3D visual-language benchmark designed to assess multimodal large language models (MLLMs) on real-world situation understanding tasks, including change detection, situation description, rearrangement planning, and question answering, all based on complex spatial, object-centric scene changes.
+**Situat3DChange** is a 3D visual-language benchmark designed to assess multimodal large language models (MLLMs) on real-world change understanding tasks, including change description, rearrangement planning, and question answering, all with situation awareness.
 
 - 📂 Dataset on Hugging Face: [lrp123/Situat3DChange](https://huggingface.co/datasets/lrp123/Situat3DChange)
 - 🤖 Baseline model: **SCReasoner**
@@ -84,3 +84,9 @@ results/SCReasoner/
 ## 📫 Citation
 
 If you use this project or dataset, please cite us (citation coming soon).
+
+---
+
+## 🙏 Acknowledgment
+
+We thank the [LEO project](https://github.com/embodied-generalist/embodied-generalist), upon which our project is based.
