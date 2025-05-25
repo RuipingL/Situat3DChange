@@ -1,0 +1,5 @@
+Metadata-Version: 2.2
+Name: pointnet2
+Version: 3.0.0
+Requires-Dist: torch>=1.4
+Dynamic: requires-dist

@@ -1,0 +1,40 @@
+ninja_required_version = 1.3
+cxx = /usr/bin/g++
+nvcc = /home/hk-project-cvhciass/zp8650/cuda-11.8/bin/nvcc
+
+cflags = -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -O2 -xCORE-AVX2 -fPIC -I/hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/_ext_src/include -I/home/hk-project-cvhciass/zp8650/anaconda3/envs/leo/lib/python3.8/site-packages/torch/include -I/home/hk-project-cvhciass/zp8650/anaconda3/envs/leo/lib/python3.8/site-packages/torch/include/torch/csrc/api/include -I/home/hk-project-cvhciass/zp8650/anaconda3/envs/leo/lib/python3.8/site-packages/torch/include/TH -I/home/hk-project-cvhciass/zp8650/anaconda3/envs/leo/lib/python3.8/site-packages/torch/include/THC -I/home/hk-project-cvhciass/zp8650/cuda-11.8/include -I/home/hk-project-cvhciass/zp8650/anaconda3/envs/leo/include/python3.8 -c
+post_cflags = -O3 -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=_ext -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+cuda_cflags = -I/hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/_ext_src/include -I/home/hk-project-cvhciass/zp8650/anaconda3/envs/leo/lib/python3.8/site-packages/torch/include -I/home/hk-project-cvhciass/zp8650/anaconda3/envs/leo/lib/python3.8/site-packages/torch/include/torch/csrc/api/include -I/home/hk-project-cvhciass/zp8650/anaconda3/envs/leo/lib/python3.8/site-packages/torch/include/TH -I/home/hk-project-cvhciass/zp8650/anaconda3/envs/leo/lib/python3.8/site-packages/torch/include/THC -I/home/hk-project-cvhciass/zp8650/cuda-11.8/include -I/home/hk-project-cvhciass/zp8650/anaconda3/envs/leo/include/python3.8 -c
+cuda_post_cflags = -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -Xfatbin -compress-all -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=_ext -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_80,code=sm_80 -ccbin /usr/bin/gcc -std=c++17
+cuda_dlink_post_cflags = 
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+rule cuda_compile
+  depfile = $out.d
+  deps = gcc
+  command = $nvcc  $cuda_cflags -c $in -o $out $cuda_post_cflags
+
+
+
+
+
+build /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/build/temp.linux-x86_64-cpython-38/_ext_src/src/ball_query.o: compile /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/_ext_src/src/ball_query.cpp
+build /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/build/temp.linux-x86_64-cpython-38/_ext_src/src/ball_query_gpu.o: cuda_compile /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/_ext_src/src/ball_query_gpu.cu
+build /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/build/temp.linux-x86_64-cpython-38/_ext_src/src/bindings.o: compile /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/_ext_src/src/bindings.cpp
+build /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/build/temp.linux-x86_64-cpython-38/_ext_src/src/group_points.o: compile /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/_ext_src/src/group_points.cpp
+build /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/build/temp.linux-x86_64-cpython-38/_ext_src/src/group_points_gpu.o: cuda_compile /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/_ext_src/src/group_points_gpu.cu
+build /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/build/temp.linux-x86_64-cpython-38/_ext_src/src/interpolate.o: compile /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/_ext_src/src/interpolate.cpp
+build /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/build/temp.linux-x86_64-cpython-38/_ext_src/src/interpolate_gpu.o: cuda_compile /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/_ext_src/src/interpolate_gpu.cu
+build /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/build/temp.linux-x86_64-cpython-38/_ext_src/src/sampling.o: compile /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/_ext_src/src/sampling.cpp
+build /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/build/temp.linux-x86_64-cpython-38/_ext_src/src/sampling_gpu.o: cuda_compile /hkfs/work/workspace/scratch/zp8650-3d_change_qa/embodied-generalist/model/pointnetpp/_ext_src/src/sampling_gpu.cu
+
+
+
+
+
+
