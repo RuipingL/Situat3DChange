@@ -1066,8 +1066,8 @@ class LeoChangeQA(LeoBase):
         obj_fts, obj_locs, _ = self.preprocess_pcd(selected_obj_pcds, return_anchor=False)
         obj_fts_scene, obj_locs_scene, _ = self.preprocess_pcd(selected_obj_pcds_scene, return_anchor=False)
         ego_root = '/dataset/Ours/Situat3DChange/ego_view'
-        # img_fts = preprocess_2d(cv2.imread(os.path.join(ego_root, scan_id, f'{qa_dict['s_short'].replace('sitting', 'stitting').replace('/', '').replace(' ', '_')}.png')))
-        img_fts = preprocess_2d(cv2.imread(os.path.join(ego_root, scan_id, f"{qa_dict['s_short'].replace('sitting', 'stitting').replace('/', '').replace(' ', '_')}.png")))
+        # img_fts = preprocess_2d(cv2.imread(os.path.join(ego_root, scan_id, f'{qa_dict['s_short'].replace('/', '').replace(' ', '_')}.png')))
+        img_fts = preprocess_2d(cv2.imread(os.path.join(ego_root, scan_id, f"{qa_dict['s_short'].replace('/', '').replace(' ', '_')}.png")))
         data_dict = self.get_prompts(
             instruction=qa_dict['q'],
             situation=qa_dict['s'],
@@ -1180,8 +1180,8 @@ class LeoChangeCap(LeoBase):
         obj_fts, obj_locs, _ = self.preprocess_pcd(selected_obj_pcds, return_anchor=False)
         obj_fts_scene, obj_locs_scene, _ = self.preprocess_pcd(selected_obj_pcds_scene, return_anchor=False)
         ego_root = '/dataset/Ours/Situat3DChange/ego_view'
-        # img_fts = preprocess_2d(cv2.imread(os.path.join(ego_root, scan_id, f'{qa_dict['s_short'].replace('sitting', 'stitting').replace('/', '').replace(' ', '_')}.png')))
-        img_fts = preprocess_2d(cv2.imread(os.path.join(ego_root, scan_id, f"{qa_dict['s_short'].replace('sitting', 'stitting').replace('/', '').replace(' ', '_')}.png")))
+        # img_fts = preprocess_2d(cv2.imread(os.path.join(ego_root, scan_id, f'{qa_dict['s_short'].replace('/', '').replace(' ', '_')}.png')))
+        img_fts = preprocess_2d(cv2.imread(os.path.join(ego_root, scan_id, f"{qa_dict['s_short'].replace('/', '').replace(' ', '_')}.png")))
         data_dict = self.get_prompts(
             instruction=qa_dict['q'],
             situation=qa_dict['s'],
@@ -1293,8 +1293,8 @@ class LeoChangeRe(LeoBase):
         obj_fts, obj_locs, _ = self.preprocess_pcd(selected_obj_pcds, return_anchor=False)
         obj_fts_scene, obj_locs_scene, _ = self.preprocess_pcd(selected_obj_pcds_scene, return_anchor=False)
         ego_root = '/dataset/Ours/Situat3DChange/ego_view'
-        # img_fts = preprocess_2d(cv2.imread(os.path.join(ego_root, scan_id, f'{qa_dict['s_short'].replace('sitting', 'stitting').replace('/', '').replace(' ', '_')}.png')))
-        img_fts = preprocess_2d(cv2.imread(os.path.join(ego_root, scan_id, f"{qa_dict['s_short'].replace('sitting', 'stitting').replace('/', '').replace(' ', '_')}.png")))
+        # img_fts = preprocess_2d(cv2.imread(os.path.join(ego_root, scan_id, f'{qa_dict['s_short'].replace('/', '').replace(' ', '_')}.png')))
+        img_fts = preprocess_2d(cv2.imread(os.path.join(ego_root, scan_id, f"{qa_dict['s_short'].replace('/', '').replace(' ', '_')}.png")))
         data_dict = self.get_prompts(
             instruction=qa_dict['q'],
             situation=qa_dict['s'],
