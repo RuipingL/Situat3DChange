@@ -1,0 +1,39 @@
+# train
+training:
+  lr: 3e-5
+  epochs: 5
+
+leomix:
+  mode: [train]
+  dataset: LeoMix
+  mix: [rscan_changecap, rscan_changere, rscan_changeqa]
+  ratio: 1.0
+  dataset_wrapper: LeoObjPadDatasetWrapper
+  dataset_wrapper_args: ${dataset_wrapper_args}
+  train_dataloader_args: ${dataloader.train}
+  eval_dataloader_args: ${dataloader.eval}
+
+# eval
+rscan_changeqa:
+  mode: [val]
+  dataset: LeoChangeQA
+  dataset_wrapper: LeoObjPadDatasetWrapper
+  dataset_wrapper_args: ${dataset_wrapper_args}
+  eval_dataloader_args: ${dataloader.eval}
+  evaluator: CaptionEvaluator
+
+rscan_changecap:
+  mode: [val]
+  dataset: LeoChangeCap
+  dataset_wrapper: LeoObjPadDatasetWrapper
+  dataset_wrapper_args: ${dataset_wrapper_args}
+  eval_dataloader_args: ${dataloader.eval}
+  evaluator: CaptionEvaluator
+
+rscan_changere:
+  mode: [val]
+  dataset: LeoChangeRe
+  dataset_wrapper: LeoObjPadDatasetWrapper
+  dataset_wrapper_args: ${dataset_wrapper_args}
+  eval_dataloader_args: ${dataloader.eval}
+  evaluator: CaptionEvaluator
