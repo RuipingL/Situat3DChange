@@ -83,7 +83,15 @@ results/SCReasoner/
 
 ## 📫 Citation
 
-If you use this project or dataset, please cite us (citation coming soon).
+If you use this project or dataset, please cite us:
+```
+@article{liu2025situat3dchange,
+  title={Situat3DChange: Situated 3D Change Understanding Dataset for Multimodal Large Language Model},
+  author={Liu, Ruiping and Zheng, Junwei and Chen, Yufan and Wang, Zirui and Peng, Kunyu and Yang, Kailun and Zhang, Jiaming and Pollefeys, Marc and Stiefelhagen, Rainer},
+  journal={arXiv preprint arXiv:2510.11509},
+  year={2025}
+}
+```
 
 ---
 
